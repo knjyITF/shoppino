@@ -10,9 +10,9 @@ import android.widget.Toast
 data class Flyer(val name:String, val cabbage:Int, val potato:Int)
 val superA = Flyer("スーパーA", 500, 300)
 val superB = Flyer("スーパーB", 800, 900)
-val suoerC = Flyer("C",1000,2000)
-val flyerList = mutableListOf(superA, superB)
-flyerList.add(superC)
+val superC = Flyer("C",1000,2000)
+val flyerList = mutableListOf(superA, superB,superC)
+//flyerList.add(superC)superC
 
 
 //data class  Super()
