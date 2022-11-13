@@ -7,6 +7,11 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 
+data class Super(val kyabetu:Int,val potato:Int)
+val SuperA = Super(50000,300)
+val SuperB = Super(200,500)
+//data class  Super()
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +21,17 @@ class MainActivity : AppCompatActivity() {
         val editText = findViewById<EditText>(R.id.editText)
         button.setOnClickListener {
             if(editText.text.toString() == "キャベツ") {
-                textView.text = editText.text.toString()
+                if(SuperA.kyabetu > SuperB.kyabetu){
+                    textView.text = "スーパーB"
+                } else if(SuperA.kyabetu == SuperB.kyabetu){
+                    textView.text = "同じです"
+                }else {
+                    textView.text = "同じです"
+                }
+            }
+            if(editText.text.isEmpty())
+            {
+                textView.text = ""
             }
         }
     }
