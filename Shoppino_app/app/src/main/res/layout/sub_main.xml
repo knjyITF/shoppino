@@ -8,9 +8,9 @@
 
     <Button
         android:id="@+id/user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ユーザ"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="安い店を検索！"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -20,9 +20,9 @@
 
     <Button
         android:id="@+id/company"
-        android:layout_width="117dp"
-        android:layout_height="81dp"
-        android:text="企業"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:text="店舗情報の登録"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

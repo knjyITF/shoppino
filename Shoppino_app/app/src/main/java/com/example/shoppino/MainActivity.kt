@@ -8,16 +8,12 @@ import android.widget.*
 data class Flyer(val name:String, val cabbage:Int, val potato:Int)
 val superA = Flyer("スーパーA", 500, 300)
 val superB = Flyer("スーパーB", 800, 900)
-val superC = Flyer("C",1000,2000)
+val superC = Flyer("スーパーC",1000,2000)
 val flyerList = mutableListOf(superA, superB,superC)
 
 
 class MainActivity : AppCompatActivity() {
     //スーパーの一覧
-    val superA = Flyer("スーパーA", 1200, 300)
-    val superB = Flyer("スーパーB", 800, 900)
-    val superC = Flyer("スーパーC",1000,2000)
-    val flyerList = mutableListOf<Flyer>()
     override fun onCreate(savedInstanceState: Bundle?) {
         flyerList.add(superA)
         flyerList.add(superB)
@@ -30,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         val textView = findViewById<TextView>(R.id.textView)
         val editText = findViewById<EditText>(R.id.editText)
         val list = findViewById<ListView>(R.id.list)
+
+        textView.text = "検索したい商品を入力してください"
 
         button.setOnClickListener {
             if (editText.text.toString() == "キャベツ") {
