@@ -1,5 +1,6 @@
 package com.example.shoppino
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -14,20 +15,20 @@ val flyerList = mutableListOf(superA, superB,superC)
 
 
 class MainActivity : AppCompatActivity() {
+    val EXTRA_MESSAGE = "com.example.shoppino.MESSAGE"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val button = findViewById<Button>(R.id.button)
         val textView = findViewById<TextView>(R.id.textView)
         val editText = findViewById<EditText>(R.id.editText)
-        button.setOnClickListener {
 
-            if(editText.text.toString() == "キャベツ") {
-            }
-            if(editText.text.isEmpty())
-            {
-                textView.text = ""
-            }
+        button.setOnClickListener {
+            val intent = Intent(application, ResultActivity::class.java)
+            val data = editText.text
+            intent.putExtra(EXTRA_MESSAGE,data)
+            startActivity(intent)
         }
     }
 }
