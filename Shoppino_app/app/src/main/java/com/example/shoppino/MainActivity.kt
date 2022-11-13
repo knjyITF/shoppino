@@ -1,14 +1,16 @@
 package com.example.shoppino
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 
 data class Flyer(val name:String, val cabbage:Int, val potato:Int)
+val superA = Flyer("スーパーA", 500, 300)
+val superB = Flyer("スーパーB", 800, 900)
+val superC = Flyer("C",1000,2000)
+val flyerList = mutableListOf(superA, superB,superC)
 
-
-
-//data class  Super()
 
 class MainActivity : AppCompatActivity() {
     //スーパーの一覧
@@ -16,7 +18,6 @@ class MainActivity : AppCompatActivity() {
     val superB = Flyer("スーパーB", 800, 900)
     val superC = Flyer("スーパーC",1000,2000)
     val flyerList = mutableListOf<Flyer>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         flyerList.add(superA)
         flyerList.add(superB)
@@ -24,20 +25,19 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val button = findViewById<Button>(R.id.button)
         val textView = findViewById<TextView>(R.id.textView)
         val editText = findViewById<EditText>(R.id.editText)
         val list = findViewById<ListView>(R.id.list)
 
         button.setOnClickListener {
-            if(editText.text.toString() == "キャベツ")
-            {
+            if (editText.text.toString() == "キャベツ") {
                 flyerList.sortBy { it.cabbage }
                 textView.text = "キャベツの一番安い店は" + flyerList.first().name
                 //ListViewで表示する文字列を格納するviewListの生成
                 val viewList = mutableListOf<String>()
-                for(i in 0 until flyerList.size)
-                {
+                for (i in 0 until flyerList.size) {
                     viewList.add(flyerList.get(i).name + "のキャベツ : " + flyerList.get(i).cabbage + "円")
                 }
                 //アダプター
@@ -46,15 +46,12 @@ class MainActivity : AppCompatActivity() {
                     android.R.layout.simple_list_item_1,
                     viewList
                 )
-            }
-            else if(editText.text.toString() == "ジャガイモ" ||editText.text.toString() =="じゃがいも")
-            {
-                flyerList.sortBy{ it.potato }
+            } else if (editText.text.toString() == "ジャガイモ" || editText.text.toString() == "じゃがいも") {
+                flyerList.sortBy { it.potato }
                 textView.text = "じゃがいもの安い店は" + flyerList.first().name
                 //ListViewで表示する文字列を格納するviewListの生成
                 val viewList = mutableListOf<String>()
-                for(i in 0 until flyerList.size)
-                {
+                for (i in 0 until flyerList.size) {
                     viewList.add(flyerList.get(i).name + "のじゃがいも : " + flyerList.get(i).potato + "円")
                 }
                 //アダプター
@@ -64,12 +61,10 @@ class MainActivity : AppCompatActivity() {
                     viewList
                 )
             }
-            if(editText.text.isEmpty())
-            {
+            if (editText.text.isEmpty()) {
                 textView.text = ""
                 val viewList = mutableListOf<String>()
-                for(i in 0 until flyerList.size)
-                {
+                for (i in 0 until flyerList.size) {
                     viewList.add("")
                 }
                 //アダプター
@@ -80,7 +75,5 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         }
-
-
     }
 }
